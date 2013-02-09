@@ -26,6 +26,7 @@ import android.util.AttributeSet;
 import android.view.FocusFinder;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -41,6 +42,7 @@ public class LeftNavView extends LinearLayout {
     private final HomeDisplay mHome;
     private final TabDisplay mTabs;
     private final OptionsDisplay mOptions;
+    private final ActionItemsDisplay mActionItems;
     private final SpinnerDisplay mSpinner;
 
     private final int mWidthCollapsed;
@@ -67,6 +69,7 @@ public class LeftNavView extends LinearLayout {
         mHome = new HomeDisplay(context, this, null).setVisible(false);
         mTabs = new TabDisplay(context, this, null).setVisible(false);
         mOptions = new OptionsDisplay(context, this, null).setVisible(false);
+        mActionItems = new ActionItemsDisplay(context, this, null).setVisible(true);
         mSpinner = new SpinnerDisplay(context, this, null).setVisible(false);
 
         Resources res = context.getResources();
@@ -91,8 +94,11 @@ public class LeftNavView extends LinearLayout {
 
         // Add header / footer views.
         addView(mHome.getView(), 0);
+        
         // Central section falls here.
-        addView(mOptions.getView(), 2);
+        
+        addView(mActionItems.getView(), 2);
+        addView(mOptions.getView(), 3);
 
         // Add views to the central section.
         ViewGroup main = getMainSection();
@@ -277,6 +283,7 @@ public class LeftNavView extends LinearLayout {
     private void setContentExpanded(boolean expanded) {
         mTabs.setExpanded(expanded);
         mOptions.setExpanded(expanded);
+        mActionItems.setExpanded(expanded);
         mHome.setExpanded(expanded);
         mSpinner.setExpanded(expanded);
         if (hasCustomView()) {
@@ -408,6 +415,10 @@ public class LeftNavView extends LinearLayout {
             getCustomViewWrapper().onPostLayout(this);
         }
     }
+    
+    public void addActionItem(MenuItem actionItem, View.OnClickListener onClickListener){
+    	mActionItems.addActionItem(actionItem, onClickListener);
+    }
 
     /**
      * Wrapper around custom views to allow them to use the layout parameters defined in the
@@ -468,6 +479,9 @@ public class LeftNavView extends LinearLayout {
         private int findBottomOfAvailableSpace(LeftNavView parent) {
             //int bottom = parent.getMeasuredHeight() - parent.mPaddingBottom;
         	int bottom = parent.getMeasuredHeight() - parent.getPaddingBottom();
+            if (parent.mActionItems.isVisible()) {
+                bottom -= parent.mActionItems.getView().getMeasuredHeight();
+            }
             if (parent.mOptions.isVisible()) {
                 bottom -= parent.mOptions.getView().getMeasuredHeight();
             }

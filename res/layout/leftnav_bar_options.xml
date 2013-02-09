@@ -13,24 +13,28 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:gravity="center"
-    android:addStatesFromChildren="true"
-    >
+    android:background="@drawable/leftnav_bar_item_background_dark" >
 
-    <LinearLayout android:id="@+id/shown_options"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:visibility="gone"
+    <ImageView android:id="@+id/icon"
+        android:layout_width="@dimen/left_nav_icon_size"
+        android:layout_height="@dimen/left_nav_icon_size"
+        android:scaleType="centerInside"
+        android:src="@drawable/leftnav_bar_option_icon_dark"
         />
 
-    <include android:id="@+id/menu"
-        layout="@layout/leftnav_bar_option"
+    <TextView android:id="@+id/title"
+        style="@style/Widget.ActionButton.Overflow_Text"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="7dip"
+        android:layout_marginRight="7dip"
+        android:visibility="gone"
         />
 
 </LinearLayout>

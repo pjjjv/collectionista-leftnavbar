@@ -60,12 +60,12 @@ class OptionsDisplay {
 
     private void refreshExpandedState() {
         // Menu icon.
-        setOptionExpanded(mView.getChildAt(1), mExpanded);
-        // "Show always" options.
+        setOptionExpanded(mView, mExpanded);
+        /*// "Show always" options.
         ViewGroup optionsContainer = getOptionsContainer();
         for (int i = 0; i < optionsContainer.getChildCount(); ++i) {
             setOptionExpanded(optionsContainer.getChildAt(i), mExpanded);
-        }
+        }*/
     }
 
     private void createView(ViewGroup parent, TypedArray attributes) {
@@ -123,7 +123,7 @@ class OptionsDisplay {
         return (TextView) option.findViewById(R.id.title);
     }
 
-    private ViewGroup getOptionsContainer() {
+    /*private ViewGroup getOptionsContainer() {
         return (ViewGroup) mView.findViewById(R.id.shown_options);
-    }
+    }*/
 }

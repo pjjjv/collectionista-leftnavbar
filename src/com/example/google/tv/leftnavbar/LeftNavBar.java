@@ -24,6 +24,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
@@ -500,5 +501,9 @@ public class LeftNavBar extends ActionBar {
 
     public void setOnClickHomeListener(View.OnClickListener listener) {
         mLeftNav.setOnClickHomeListener(listener);
+    }
+    
+    public void addActionItem(MenuItem actionItem, View.OnClickListener onClickListener){
+    	mLeftNav.addActionItem(actionItem, onClickListener);
     }
 }
