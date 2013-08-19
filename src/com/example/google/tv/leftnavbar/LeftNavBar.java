@@ -506,4 +506,8 @@ public class LeftNavBar extends ActionBar {
     public void addActionItem(MenuItem actionItem, View.OnClickListener onClickListener){
     	mLeftNav.addActionItem(actionItem, onClickListener);
     }
+    
+    public void removeActionItems(){
+    	mLeftNav.removeActionItems();
+    }
 }

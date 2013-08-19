@@ -13,12 +13,10 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-	<!-- This lib_left_nav.xml is here purely for Lint's amusement. None of these are ever used, and the real one is in layout-v11. -->
-
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
   <com.example.google.tv.leftnavbar.LeftNavView xmlns:android="http://schemas.android.com/apk/res/android"   android:id="@+id/left_nav"
-        style="@android:style/Widget"
+        style="@android:style/Widget.Holo.ActionBar"
         android:layout_width="@dimen/left_nav_collapsed_apparent_width"
         android:layout_height="match_parent" 
         />

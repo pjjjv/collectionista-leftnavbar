@@ -14,9 +14,10 @@
      limitations under the License.
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-	<!-- This styles.xml is here purely for Lint's amusement. None of these are ever used, and the real one is in values-v11. -->
 
-    <style name="WithTitle" parent="@android:style/Theme">
+    <style name="WithTitle" parent="@android:style/Theme.Holo">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionBarOverlay">false</item>
         <item name="android:windowNoTitle">false</item>
     </style>
 
@@ -41,7 +42,11 @@
 
     <style name="Widget.ActionBar">
         <item name="android:background">@drawable/leftnav_bar_background_dark</item>
+        <item name="android:displayOptions">useLogo|showHome</item>
         <item name="android:height">0dip</item>
+        <item name="android:homeLayout">@layout/leftnav_bar_home</item>
+        <item name="android:titleTextStyle">@style/TextAppearance.ActionBar_Title</item>
+        <item name="android:subtitleTextStyle">@style/TextAppearance.ActionBar_Subtitle</item>
         <item name="selectableItemBackground">@drawable/leftnav_bar_item_background_dark</item>
     </style>
 

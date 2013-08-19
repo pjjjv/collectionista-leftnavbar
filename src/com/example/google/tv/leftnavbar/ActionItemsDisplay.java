@@ -82,6 +82,10 @@ class ActionItemsDisplay {
 
     	getActionItemsContainer().addView(actionItemView, getActionItemsContainer().getChildCount());
     }
+    
+    public void removeActionItems(){
+    	getActionItemsContainer().removeAllViews();
+    }
 
     private void createView(ViewGroup parent, TypedArray attributes) {
         mView = (ViewGroup) LayoutInflater.from(mContext).inflate(

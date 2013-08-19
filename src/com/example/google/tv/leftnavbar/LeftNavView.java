@@ -419,6 +419,10 @@ public class LeftNavView extends LinearLayout {
     public void addActionItem(MenuItem actionItem, View.OnClickListener onClickListener){
     	mActionItems.addActionItem(actionItem, onClickListener);
     }
+    
+    public void removeActionItems(){
+    	mActionItems.removeActionItems();
+    }
 
     /**
      * Wrapper around custom views to allow them to use the layout parameters defined in the
