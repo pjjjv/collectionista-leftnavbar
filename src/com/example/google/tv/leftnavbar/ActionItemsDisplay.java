@@ -80,7 +80,7 @@ class ActionItemsDisplay {
         setDuplicateParentState(getActionItemIcon(actionItemView));
         setDuplicateParentState(getActionItemTitle(actionItemView));
 
-    	getActionItemsContainer().addView(actionItemView, getActionItemsContainer().getChildCount());
+    	getActionItemsContainer().addView(actionItemView, 0);//Insert newest at the top (for bottom use: /*getActionItemsContainer().getChildCount()*/ ).
     }
     
     public void removeActionItems(){
